@@ -112,6 +112,7 @@ evaluate_method("FAISS Semantic Search", lambda q: faiss_query(q, top_k=5))
 
 
 results_dict = {
+    "Query": queries,
     "Boolean Correct": [],
     "BM25 Correct": [],
     "ST Correct": [],

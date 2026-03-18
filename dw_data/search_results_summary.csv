@@ -1,18 +1,18 @@
-Boolean Correct,BM25 Correct,ST Correct,FAISS Correct
-3,3,4,4
-1,1,2,2
-3,3,1,1
-1,2,1,1
-1,1,0,0
-1,1,1,1
-0,1,0,0
-2,2,3,3
-0,0,1,1
-1,1,1,1
-0,1,1,1
-0,3,1,1
-1,2,1,1
-0,0,1,2
-1,2,1,1
-0,0,0,0
-0,0,1,1
+Query,Boolean Correct,BM25 Correct,ST Correct,FAISS Correct
+Doctor fights with Weeping Angels and wants to save Amy,3,3,4,4
+Doctor and Clara in nineteenth century,1,1,2,2
+Doctor meets River Song for the first time,3,3,1,1
+Doctor and Donna encounter Daleks and Davros,1,2,1,1
+Doctor and Rose end up in a parallel universe,1,1,0,0
+Doctor meets van Gogh,1,1,1,1
+Doctor and Martha face time paradox creatures or similar threats,0,1,0,0
+Doctor and Bill encounter Cybermen,2,2,3,3
+Paternoster Gang and Doctor and Vastra and Strax,0,0,1,1
+Doctor and Rose meets her father Pete Tyler,1,1,1,1
+Rory dies,0,1,1,1
+Rose manequins aliens,0,3,1,1
+neighbor upstairs Amy not there,1,2,1,1
+cat nuns,0,0,1,2
+Doctor regenerates,1,2,1,1
+Doctor encounters Silence,0,0,0,0
+Doctor in Italy,0,0,1,1
