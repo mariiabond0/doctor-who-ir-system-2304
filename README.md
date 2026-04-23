@@ -13,6 +13,7 @@ This project implements an information retrieval system for the **Doctor Who** T
   * **BM25 Search** using `rank_bm25`
   * **Semantic Search** using `SentenceTransformers` (`all-MiniLM-L6-v2`)
   * **FAISS Semantic Search** using a nearest neighbor index
+  * **Fused Search** combining BM25 and semantic with Reciprocal Rank Fusion (RRF)
 * **Storage Options**
   * JSON files (`document_corpus_dw.json`, `inverted_index.json`)
   * SQLite database (`doctor_who.db`) with episodes, inverted index, and embeddings

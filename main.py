@@ -77,6 +77,28 @@ def faiss_query(query, index, mapping, model, top_k=config.DEFAULT_TOP_K):
     return [mapping[i] for i in indices[0] if int(i) in mapping]
 
 
+def fused_query(query, conn, top_k=config.DEFAULT_TOP_K, k=60):
+    # Get results from BM25 (sparse) and semantic (dense)
+    bm25_results = bm25_search_sqlite(query, conn, top_n=top_k)
+    semantic_results = semantic_search_sqlite(query, conn, top_n=top_k)
+    
+    # Create rank dictionaries
+    bm25_ranks = {doc: rank + 1 for rank, doc in enumerate(bm25_results)}
+    semantic_ranks = {doc: rank + 1 for rank, doc in enumerate(semantic_results)}
+    
+    # Combine using Reciprocal Rank Fusion (RRF)
+    fused_scores = {}
+    all_docs = set(bm25_results + semantic_results)
+    for doc in all_docs:
+        rrf_sparse = 1 / (k + bm25_ranks.get(doc, top_k + 1))
+        rrf_dense = 1 / (k + semantic_ranks.get(doc, top_k + 1))
+        fused_scores[doc] = rrf_sparse + rrf_dense
+    
+    # Sort by fused score descending
+    sorted_docs = sorted(fused_scores, key=fused_scores.get, reverse=True)
+    return sorted_docs[:top_k]
+
+
 def evaluate_method(name, query_fn):
     print(f"\n--- {name} ---")
     metrics = []
@@ -124,6 +146,7 @@ def main():
         ("BM25 Search", lambda q: bm25_search_sqlite(q, conn, top_n=config.DEFAULT_TOP_K)),
         ("Semantic Search", lambda q: semantic_search_sqlite(q, conn, top_n=config.DEFAULT_TOP_K)),
         ("FAISS Semantic Search", lambda q: faiss_query(q, faiss_index, faiss_mapping, faiss_model, top_k=config.DEFAULT_TOP_K)),
+        ("Fused Search", lambda q: fused_query(q, conn, top_n=config.DEFAULT_TOP_K)),
     ]:
         method_metrics = evaluate_method(name, fn)
         for i, metrics in enumerate(method_metrics):
