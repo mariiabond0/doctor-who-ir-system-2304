@@ -1,31 +1,27 @@
 # Doctor Who Information Retrieval System
 
-This project implements an information retrieval system based on the **Doctor Who** TV series. It supports multiple search methods, including **Boolean search**, **BM25**, and **semantic search with Sentence Transformers**, allowing users to query episodes based on text descriptions, titles, and metadata.
+This project implements an information retrieval system for the **Doctor Who** TV series. It supports multiple search methods, including **Boolean search**, **BM25**, **semantic search with Sentence Transformers**, and **FAISS-based nearest neighbor search**.
 
 ## Features
 
 * **Corpus Creation**
-
   * Collects episode data from CSV files (`all-detailsepisodes.csv`, `imdb_details.csv`)
-  * Preprocesses text (tokenization, optional stopword removal, preserving proper nouns)
-  * Builds a **document corpus** and an **inverted index**
-
+  * Preprocesses text with tokenization, optional stopword removal, and stemming
+  * Builds a **document corpus**, **inverted index**, and **SQLite database**
 * **Search Methods**
-
   * **Boolean Search** using an inverted index
   * **BM25 Search** using `rank_bm25`
   * **Semantic Search** using `SentenceTransformers` (`all-MiniLM-L6-v2`)
-
+  * **FAISS Semantic Search** using a nearest neighbor index
 * **Storage Options**
-
   * JSON files (`document_corpus_dw.json`, `inverted_index.json`)
-  * SQLite database (`doctor_who.db`) containing episodes, inverted index, and precomputed embeddings
-  * Optional support for pickled embeddings
-
+  * SQLite database (`doctor_who.db`) with episodes, inverted index, and embeddings
+  * FAISS index for fast semantic nearest neighbor retrieval
 * **Evaluation**
-
   * Supports test queries with expected answers
-  * Computes overlap and correctness metrics for all search methods
+  * Computes IR metrics: P@5, R@5, AP, and MRR
+* **Deployment**
+  * `uv`-based dependency management
 
 ## Project Structure
 
@@ -34,15 +30,15 @@ doctor-who-ir-project/
 │
 ├─ src/
 │   ├─ __init__.py
-│   ├─ bm_25.py               # BM25 functions (JSON & SQLite)
-│   ├─ boolean_search.py      # Boolean search functions (JSON & SQLite)
-│   ├─ creating_corpus.py     # Build corpus, inverted index, embeddings, SQLite DB
-│   ├─ preprocessing.py       # Text preprocessing functions
-│   ├─ sentence_transformers.py # Semantic search & embedding functions
+│   ├─ bm_25.py
+│   ├─ boolean_search.py
+│   ├─ creating_corpus.py
+│   ├─ preprocessing.py
+│   ├─ semantic_search.py
 │
 ├─ dw_data/
 │   ├─ all-detailsepisodes.csv
-│   ├─ all_scripts.csv
+│   ├─ all-scripts.csv
 │   ├─ doctor_who.db
 │   ├─ document_corpus_dw.json
 │   ├─ dwguide.csv
@@ -50,90 +46,62 @@ doctor-who-ir-project/
 │   ├─ imdb_details.csv
 │   ├─ inverted_index.json
 │   ├─ merged_dataset.csv
+│   ├─ faiss_mapping.json
+│   ├─ faiss.index
 │   └─ search_results_summary.csv
 │
-├─ main.py                   # Run evaluation and query searches
+├─ main.py
 ├─ README.md
-└─ requirements.txt
+├─ requirements.txt
+├─ pyproject.toml
 ```
 
 ## Installation
 
-1. Clone the repository:
+### Using `uv` (Recommended)
+
+Install `uv` if you haven't already:
 
 ```bash
-git clone https://github.com/yourusername/doctor-who-ir-project.git
-cd doctor-who-ir-project
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-2. Create a virtual environment and install dependencies:
+Then set up the project:
+
+```bash
+uv sync
+```
+
+Activate the virtual environment:
+
+```bash
+source .venv/bin/activate
+```
+
+### Using `pip` (Alternative)
 
 ```bash
 python3 -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate     # Windows
-
+source venv/bin/activate
 pip install -r requirements.txt
-```
-
-**Dependencies include:**
-
-* `pandas`
-* `nltk`
-* `rank_bm25`
-* `sentence-transformers`
-* `numpy`
-
-3. Download NLTK punkt tokenizer:
-
-```python
-import nltk
-nltk.download('punkt')
 ```
 
 ## Usage
 
-1. **Build corpus and database**:
+1. Build the corpus and database:
 
 ```bash
-python src/creating_corpus.py
+uv run python src/creating_corpus.py
 ```
 
-2. **Run evaluation of search methods**:
+2. Run evaluation:
 
 ```bash
-python main.py
-```
-
-3. **Query examples**:
-
-```python
-from src.boolean_search import boolean_search_sqlite
-from src.bm_25 import bm25_search_sqlite
-from src.sentence_transformers import semantic_search, load_embeddings_from_db
-import sqlite3
-
-conn = sqlite3.connect("dw_data/doctor_who.db")
-embeddings = load_embeddings_from_db(conn)
-
-query = "Doctor and Clara in nineteenth century"
-results_boolean = boolean_search_sqlite(query, conn)
-results_bm25 = bm25_search_sqlite(query, conn)
-results_semantic = semantic_search(query, embeddings, top_n=5)
+uv run python main.py
 ```
 
 ## Notes
 
-* Preprocessing preserves capital letters in proper names for better retrieval of characters and places.
-* BM25 and semantic search can be adapted to use either JSON files or the SQLite database.
-* The SQLite database allows fast retrieval and easier management of metadata.
+* `config.py` centralizes paths and search settings.
+* `src/semantic_search.py` provides semantic nearest-neighbor search from SQLite embeddings.
 
-## License
-
-This project is released under the MIT License.
-
----
-
-If you want, I can also **add a “Quick Start” section with ready-to-run examples for all three search methods using SQLite** so anyone can test queries immediately.
-
-Do you want me to add that?

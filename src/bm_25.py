@@ -2,6 +2,10 @@ from rank_bm25 import BM25Okapi
 from src.preprocessing import preprocess_text
 import sqlite3
 import numpy as np
+import pickle
+
+# Cache for BM25 models to avoid rebuilding on each query
+_bm25_cache = {}
 
 """Return tokenized texts and corresponding doc IDs"""
 def build_bm25_corpus(document_corpus):
@@ -22,17 +26,14 @@ def bm25_search(query: str, texts, doc_ids, top_n=5):
 
 def build_bm25_corpus_sqlite(conn):
     """
-    Gets all documents from SQLite, tokenizes them, and returns texts and doc_ids.
+    Gets preprocessed texts from SQLite and returns texts and doc_ids.
     """
     cur = conn.cursor()
-    cur.execute("SELECT doc_id, title, description FROM episodes")
+    cur.execute("SELECT doc_id, preprocessed_combined FROM episodes")
     rows = cur.fetchall()
     
-    texts = []
-    doc_ids = []
-    for doc_id, title, description in rows:
-        texts.append(preprocess_text(f"{title} {description}"))
-        doc_ids.append(doc_id)
+    texts = [pickle.loads(row[1]) for row in rows]
+    doc_ids = [row[0] for row in rows]
     
     return texts, doc_ids
 
@@ -40,9 +41,13 @@ def build_bm25_corpus_sqlite(conn):
 def bm25_search_sqlite(query: str, conn, top_n=5):
     """
     Performs BM25 search based on a query using the SQLite database.
+    Caches the BM25 model for efficiency.
     """
-    texts, doc_ids = build_bm25_corpus_sqlite(conn)
-    bm25 = BM25Okapi(texts)
+    if conn not in _bm25_cache:
+        texts, doc_ids = build_bm25_corpus_sqlite(conn)
+        _bm25_cache[conn] = (BM25Okapi(texts), doc_ids)
+    
+    bm25, doc_ids = _bm25_cache[conn]
     
     query_tokens = preprocess_text(query)
     if not query_tokens:

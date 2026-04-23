@@ -1,18 +1,69 @@
-Query,Boolean Correct,BM25 Correct,ST Correct,FAISS Correct
-Doctor fights with Weeping Angels and wants to save Amy,3,3,4,4
-Doctor and Clara in nineteenth century,1,1,2,2
-Doctor meets River Song for the first time,3,3,1,1
-Doctor and Donna encounter Daleks and Davros,1,2,1,1
-Doctor and Rose end up in a parallel universe,1,1,0,0
-Doctor meets van Gogh,1,1,1,1
-Doctor and Martha face time paradox creatures or similar threats,0,1,0,0
-Doctor and Bill encounter Cybermen,2,2,3,3
-Paternoster Gang and Doctor and Vastra and Strax,0,0,1,1
-Doctor and Rose meets her father Pete Tyler,1,1,1,1
-Rory dies,0,1,1,1
-Rose manequins aliens,0,3,1,1
-neighbor upstairs Amy not there,1,2,1,1
-cat nuns,0,0,1,2
-Doctor regenerates,1,2,1,1
-Doctor encounters Silence,0,0,0,0
-Doctor in Italy,0,0,1,1
+query,method,expected,overlap,P@5,R@5,AP,MRR
+Doctor fights with Weeping Angels and wants to save Amy,Boolean Search,5x4;5x5;7x5;6x11;3x10,0,0.0,0.0,0.0,0.0
+Doctor and Clara in nineteenth century,Boolean Search,7x6;7x12;7x8;1x3;7x10,0,0.0,0.0,0.0,0.0
+Doctor meets River Song for the first time,Boolean Search,4x8;4x9;5x4;5x5;6x1,0,0.0,0.0,0.0,0.0
+Doctor and Donna encounter Daleks and Davros,Boolean Search,4x12;4x13;2x12;2x13;9x1,0,0.0,0.0,0.0,0.0
+Doctor and Rose end up in a parallel universe,Boolean Search,2x5;2x6;2x12;2x13;4x11,0,0.0,0.0,0.0,0.0
+Doctor meets van Gogh,Boolean Search,5x10;5x1;5x12;5x13;1x3,1,0.2,0.2,0.2,1.0
+Doctor and Martha face time paradox creatures or similar threats,Boolean Search,3x10;3x8;3x9;3x11;3x12,0,0.0,0.0,0.0,0.0
+Doctor and Bill encounter Cybermen,Boolean Search,10x11;10x12;2x5;2x6;8x12,0,0.0,0.0,0.0,0.0
+Paternoster Gang and Doctor and Vastra and Strax,Boolean Search,7x6;7x11;7x13;8x1;6x7,0,0.0,0.0,0.0,0.0
+Doctor and Rose meets her father Pete Tyler,Boolean Search,1x8;2x5;2x6;1x13;4x11,0,0.0,0.0,0.0,0.0
+Rory dies,Boolean Search,5x9;5x12;7x5;5x13;5x10,0,0.0,0.0,0.0,0.0
+Rose manequins aliens,Boolean Search,1x1;1x2;2x0;2x7;1x4,0,0.0,0.0,0.0,0.0
+neighbor upstairs Amy not there,Boolean Search,5x11;6x12;6x13;6x1;6x2,0,0.0,0.0,0.0,0.0
+cat nuns,Boolean Search,2x1;2x2;2x3;2x4;2x7,0,0.0,0.0,0.0,0.0
+Doctor regenerates,Boolean Search,1x13;4x13;7x14;10x12;2x0,0,0.0,0.0,0.0,0.0
+Doctor encounters Silence,Boolean Search,6x1;6x2;6x13;6x11;5x1,0,0.0,0.0,0.0,0.0
+Doctor in Italy,Boolean Search,5x6;4x2;10x6;5x12;5x13,0,0.0,0.0,0.0,0.0
+Doctor fights with Weeping Angels and wants to save Amy,BM25 Search,5x4;5x5;7x5;6x11;3x10,3,0.6,0.6,0.6,1.0
+Doctor and Clara in nineteenth century,BM25 Search,7x6;7x12;7x8;1x3;7x10,1,0.2,0.2,0.1,0.5
+Doctor meets River Song for the first time,BM25 Search,4x8;4x9;5x4;5x5;6x1,3,0.6,0.6,0.35333333333333333,0.5
+Doctor and Donna encounter Daleks and Davros,BM25 Search,4x12;4x13;2x12;2x13;9x1,2,0.4,0.4,0.4,1.0
+Doctor and Rose end up in a parallel universe,BM25 Search,2x5;2x6;2x12;2x13;4x11,1,0.2,0.2,0.1,0.5
+Doctor meets van Gogh,BM25 Search,5x10;5x1;5x12;5x13;1x3,1,0.2,0.2,0.2,1.0
+Doctor and Martha face time paradox creatures or similar threats,BM25 Search,3x10;3x8;3x9;3x11;3x12,0,0.0,0.0,0.0,0.0
+Doctor and Bill encounter Cybermen,BM25 Search,10x11;10x12;2x5;2x6;8x12,2,0.4,0.4,0.2333333333333333,0.5
+Paternoster Gang and Doctor and Vastra and Strax,BM25 Search,7x6;7x11;7x13;8x1;6x7,0,0.0,0.0,0.0,0.0
+Doctor and Rose meets her father Pete Tyler,BM25 Search,1x8;2x5;2x6;1x13;4x11,1,0.2,0.2,0.1,0.5
+Rory dies,BM25 Search,5x9;5x12;7x5;5x13;5x10,0,0.0,0.0,0.0,0.0
+Rose manequins aliens,BM25 Search,1x1;1x2;2x0;2x7;1x4,2,0.4,0.4,0.3,1.0
+neighbor upstairs Amy not there,BM25 Search,5x11;6x12;6x13;6x1;6x2,2,0.4,0.4,0.3,1.0
+cat nuns,BM25 Search,2x1;2x2;2x3;2x4;2x7,0,0.0,0.0,0.0,0.0
+Doctor regenerates,BM25 Search,1x13;4x13;7x14;10x12;2x0,2,0.4,0.4,0.3,1.0
+Doctor encounters Silence,BM25 Search,6x1;6x2;6x13;6x11;5x1,0,0.0,0.0,0.0,0.0
+Doctor in Italy,BM25 Search,5x6;4x2;10x6;5x12;5x13,0,0.0,0.0,0.0,0.0
+Doctor fights with Weeping Angels and wants to save Amy,Semantic Search,5x4;5x5;7x5;6x11;3x10,4,0.8,0.8,0.8,1.0
+Doctor and Clara in nineteenth century,Semantic Search,7x6;7x12;7x8;1x3;7x10,2,0.4,0.4,0.14666666666666667,0.3333333333333333
+Doctor meets River Song for the first time,Semantic Search,4x8;4x9;5x4;5x5;6x1,1,0.2,0.2,0.04,0.2
+Doctor and Donna encounter Daleks and Davros,Semantic Search,4x12;4x13;2x12;2x13;9x1,1,0.2,0.2,0.2,1.0
+Doctor and Rose end up in a parallel universe,Semantic Search,2x5;2x6;2x12;2x13;4x11,0,0.0,0.0,0.0,0.0
+Doctor meets van Gogh,Semantic Search,5x10;5x1;5x12;5x13;1x3,1,0.2,0.2,0.2,1.0
+Doctor and Martha face time paradox creatures or similar threats,Semantic Search,3x10;3x8;3x9;3x11;3x12,0,0.0,0.0,0.0,0.0
+Doctor and Bill encounter Cybermen,Semantic Search,10x11;10x12;2x5;2x6;8x12,3,0.6,0.6,0.52,1.0
+Paternoster Gang and Doctor and Vastra and Strax,Semantic Search,7x6;7x11;7x13;8x1;6x7,1,0.2,0.2,0.2,1.0
+Doctor and Rose meets her father Pete Tyler,Semantic Search,1x8;2x5;2x6;1x13;4x11,1,0.2,0.2,0.2,1.0
+Rory dies,Semantic Search,5x9;5x12;7x5;5x13;5x10,1,0.2,0.2,0.04,0.2
+Rose manequins aliens,Semantic Search,1x1;1x2;2x0;2x7;1x4,1,0.2,0.2,0.04,0.2
+neighbor upstairs Amy not there,Semantic Search,5x11;6x12;6x13;6x1;6x2,1,0.2,0.2,0.05,0.25
+cat nuns,Semantic Search,2x1;2x2;2x3;2x4;2x7,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+Doctor regenerates,Semantic Search,1x13;4x13;7x14;10x12;2x0,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+Doctor encounters Silence,Semantic Search,6x1;6x2;6x13;6x11;5x1,0,0.0,0.0,0.0,0.0
+Doctor in Italy,Semantic Search,5x6;4x2;10x6;5x12;5x13,1,0.2,0.2,0.1,0.5
+Doctor fights with Weeping Angels and wants to save Amy,FAISS Semantic Search,5x4;5x5;7x5;6x11;3x10,4,0.8,0.8,0.8,1.0
+Doctor and Clara in nineteenth century,FAISS Semantic Search,7x6;7x12;7x8;1x3;7x10,2,0.4,0.4,0.2,0.5
+Doctor meets River Song for the first time,FAISS Semantic Search,4x8;4x9;5x4;5x5;6x1,1,0.2,0.2,0.04,0.2
+Doctor and Donna encounter Daleks and Davros,FAISS Semantic Search,4x12;4x13;2x12;2x13;9x1,1,0.2,0.2,0.2,1.0
+Doctor and Rose end up in a parallel universe,FAISS Semantic Search,2x5;2x6;2x12;2x13;4x11,0,0.0,0.0,0.0,0.0
+Doctor meets van Gogh,FAISS Semantic Search,5x10;5x1;5x12;5x13;1x3,1,0.2,0.2,0.2,1.0
+Doctor and Martha face time paradox creatures or similar threats,FAISS Semantic Search,3x10;3x8;3x9;3x11;3x12,0,0.0,0.0,0.0,0.0
+Doctor and Bill encounter Cybermen,FAISS Semantic Search,10x11;10x12;2x5;2x6;8x12,3,0.6,0.6,0.52,1.0
+Paternoster Gang and Doctor and Vastra and Strax,FAISS Semantic Search,7x6;7x11;7x13;8x1;6x7,1,0.2,0.2,0.2,1.0
+Doctor and Rose meets her father Pete Tyler,FAISS Semantic Search,1x8;2x5;2x6;1x13;4x11,1,0.2,0.2,0.2,1.0
+Rory dies,FAISS Semantic Search,5x9;5x12;7x5;5x13;5x10,1,0.2,0.2,0.04,0.2
+Rose manequins aliens,FAISS Semantic Search,1x1;1x2;2x0;2x7;1x4,1,0.2,0.2,0.04,0.2
+neighbor upstairs Amy not there,FAISS Semantic Search,5x11;6x12;6x13;6x1;6x2,1,0.2,0.2,0.05,0.25
+cat nuns,FAISS Semantic Search,2x1;2x2;2x3;2x4;2x7,2,0.4,0.4,0.14666666666666667,0.3333333333333333
+Doctor regenerates,FAISS Semantic Search,1x13;4x13;7x14;10x12;2x0,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+Doctor encounters Silence,FAISS Semantic Search,6x1;6x2;6x13;6x11;5x1,0,0.0,0.0,0.0,0.0
+Doctor in Italy,FAISS Semantic Search,5x6;4x2;10x6;5x12;5x13,1,0.2,0.2,0.1,0.5

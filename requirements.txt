@@ -1,6 +1,7 @@
-nltk
-pandas
-rank_bm25
-sentence-transformers
-torch
-faiss-cpu
+nltk>=3.8
+pandas>=1.5.0
+rank_bm25>=0.2.0
+sentence-transformers>=2.2.0
+torch>=1.10.0
+faiss-cpu>=1.7.0
+numpy>=1.21.0
