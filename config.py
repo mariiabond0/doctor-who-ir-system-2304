@@ -40,6 +40,7 @@ FAISS_EF_SEARCH = 50  # HNSW search-time parameter
 
 # Model settings
 MODEL_NAME = "all-MiniLM-L6-v2"
+#MODEL_NAME = "multi-qa-MiniLM-L6-cos-v1"
 
 # Logging
 LOG_LEVEL = "INFO"

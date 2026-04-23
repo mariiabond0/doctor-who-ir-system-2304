@@ -24,8 +24,6 @@ def load_episode_data() -> pd.DataFrame:
     """Load episode metadata and IMDb details from CSV files."""
     df_details = pd.read_csv(config.EPISODES_CSV)
     df_imdb = pd.read_csv(config.IMDB_CSV)
-    df_details = df_details.drop_duplicates(subset=["title"])
-    df_imdb = df_imdb.drop_duplicates(subset=["title"])
     merged = pd.merge(df_details, df_imdb, on="title", how="inner")
     merged.to_csv(config.MERGED_DATASET_PATH, index=False)
     return merged
