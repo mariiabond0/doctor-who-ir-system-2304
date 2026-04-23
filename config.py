@@ -36,6 +36,7 @@ EXCLUDE_SEASONS = ["11"]  # Seasons to exclude from corpus
 DEFAULT_TOP_K = 5
 FAISS_EF_CONSTRUCTION = 200  # HNSW parameter
 FAISS_M = 32  # HNSW parameter
+FAISS_EF_SEARCH = 50  # HNSW search-time parameter
 
 # Model settings
 MODEL_NAME = "all-MiniLM-L6-v2"

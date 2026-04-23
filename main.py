@@ -134,6 +134,7 @@ def main():
 
     try:
         faiss_index = faiss.read_index(str(config.FAISS_INDEX_PATH))
+        faiss_index.hnsw.efSearch = config.FAISS_EF_SEARCH
         faiss_mapping = load_faiss_mapping(config.FAISS_MAPPING_PATH)
         faiss_model = SentenceTransformer(config.MODEL_NAME)
     except Exception as error:
@@ -146,7 +147,7 @@ def main():
         ("BM25 Search", lambda q: bm25_search_sqlite(q, conn, top_n=config.DEFAULT_TOP_K)),
         ("Semantic Search", lambda q: semantic_search_sqlite(q, conn, top_n=config.DEFAULT_TOP_K)),
         ("FAISS Semantic Search", lambda q: faiss_query(q, faiss_index, faiss_mapping, faiss_model, top_k=config.DEFAULT_TOP_K)),
-        ("Fused Search", lambda q: fused_query(q, conn, top_n=config.DEFAULT_TOP_K)),
+        ("Fused Search", lambda q: fused_query(q, conn, top_k=config.DEFAULT_TOP_K)),
     ]:
         method_metrics = evaluate_method(name, fn)
         for i, metrics in enumerate(method_metrics):
