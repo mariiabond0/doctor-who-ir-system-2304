@@ -64,6 +64,10 @@ ANSWERS = [
     ["5x6", "4x2", "10x6", "5x12", "5x13"],
 ]
 
+with open(config.QUERIES_PATH, "w", encoding="utf-8") as output:
+        json.dump({"queries": QUERIES, "answers": ANSWERS}, output, ensure_ascii=False, indent=2)
+
+
 
 def load_faiss_mapping(mapping_path):
     with open(mapping_path, "r", encoding="utf-8") as file:

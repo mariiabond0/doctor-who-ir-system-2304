@@ -6,7 +6,7 @@ import string
 import pandas as pd
 
 nltk.download('punkt', quiet=True)
-nltk.download('stopwords', quiet=True)
+#nltk.download('stopwords', quiet=True)
 #STOPWORDS = set(stopwords.words('english'))
 #STEMMER = PorterStemmer()
 

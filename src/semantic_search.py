@@ -27,7 +27,10 @@ def load_embeddings_from_db(conn: sqlite3.Connection) -> Dict[str, np.ndarray]:
     cur = conn.cursor()
     cur.execute("SELECT doc_id, embedding FROM embeddings")
     rows = cur.fetchall()
-    return {row[0]: pickle.loads(row[1]) for row in rows}
+    return {
+    row[0]: np.frombuffer(row[1], dtype=np.float32)
+    for row in rows
+}
 
 
 def semantic_search_sqlite(query: str, conn: sqlite3.Connection, top_n: int = 5):

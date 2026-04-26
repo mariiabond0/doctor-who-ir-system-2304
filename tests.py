@@ -2,7 +2,6 @@
 Unit tests for the Doctor Who IR project.
 
 Tests cover preprocessing, search methods, and evaluation metrics.
-Run with: pytest tests.py
 """
 
 import pickle
