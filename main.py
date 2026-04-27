@@ -156,9 +156,9 @@ def main():
         method_metrics = evaluate_method(name, fn)
         for i, metrics in enumerate(method_metrics):
             row = {
-                "query": QUERIES[i],
+                # "query": QUERIES[i],
                 "method": name,
-                "expected": ";".join(ANSWERS[i]),
+                # "expected": ";".join(ANSWERS[i]),
                 "overlap": metrics["overlap"],
                 "P@5": metrics["P@5"],
                 "R@5": metrics["R@5"],
