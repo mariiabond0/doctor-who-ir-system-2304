@@ -6,10 +6,11 @@ from typing import Iterable
 def compute_metrics(retrieved: Iterable[str], relevant: Iterable[str], top_k: int = 5):
     relevant_set = set(relevant)
     retrieved = list(retrieved)[:top_k]
-    retrieved_set = set(retrieved)
+    # retrieved_set = set(retrieved)
+    overlap = sum(1 for doc in retrieved if doc in relevant_set)
 
-    overlap = len(retrieved_set & relevant_set)
-    p_at_k = overlap / top_k
+    # overlap = len(retrieved_set & relevant_set)
+    p_at_k = overlap / len(retrieved) if retrieved else 0.0
     r_at_k = overlap / len(relevant_set) if relevant_set else 0.0
 
     ap = 0.0

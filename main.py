@@ -24,49 +24,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-QUERIES = [
-    "Doctor fights with Weeping Angels and wants to save Amy",
-    "Doctor and Clara in nineteenth century",
-    "Doctor meets River Song for the first time",
-    "Doctor and Donna encounter Daleks and Davros",
-    "Doctor and Rose end up in a parallel universe",
-    "Doctor meets van Gogh",
-    "Doctor and Martha face time paradox creatures or similar threats",
-    "Doctor and Bill encounter Cybermen",
-    "Paternoster Gang and Doctor and Vastra and Strax",
-    "Doctor and Rose meets her father Pete Tyler",
-    "Rory dies",
-    "Rose manequins aliens",
-    "neighbor upstairs Amy not there",
-    "cat nuns",
-    "Doctor regenerates",
-    "Doctor encounters Silence",
-    "Doctor in Italy"
-]
+with open(config.QUERIES_PATH, "r", encoding="utf-8") as f:
+    second_example_17_queries = json.load(f)
 
-ANSWERS = [
-    ["5x4", "5x5", "7x5", "6x11", "3x10"],
-    ["7x6", "7x12", "7x8", "1x3", "7x10"],
-    ["4x8", "4x9", "5x4", "5x5", "6x1"],
-    ["4x12", "4x13", "2x12", "2x13", "9x1"],
-    ["2x5", "2x6", "2x12", "2x13", "4x11"],
-    ["5x10", "5x1", "5x12", "5x13", "1x3"],
-    ["3x10", "3x8", "3x9", "3x11", "3x12"],
-    ["10x11", "10x12", "2x5", "2x6", "8x12"],
-    ["7x6", "7x11", "7x13", "8x1", "6x7"],
-    ["1x8", "2x5", "2x6", "1x13", "4x11"],
-    ["5x9", "5x12", "7x5", "5x13", "5x10"],
-    ["1x1", "1x2", "2x0", "2x7", "1x4"],
-    ["5x11", "6x12", "6x13", "6x1", "6x2"],
-    ["2x1", "2x2", "2x3", "2x4", "2x7"],
-    ["1x13", "4x13", "7x14", "10x12", "2x0"],
-    ["6x1", "6x2", "6x13", "6x11", "5x1"],
-    ["5x6", "4x2", "10x6", "5x12", "5x13"],
-]
-
-with open(config.QUERIES_PATH, "w", encoding="utf-8") as output:
-        json.dump({"queries": QUERIES, "answers": ANSWERS}, output, ensure_ascii=False, indent=2)
-
+QUERIES = second_example_17_queries["queries"]
+ANSWERS = second_example_17_queries["answers"]
 
 
 def load_faiss_mapping(mapping_path):
@@ -81,21 +43,21 @@ def faiss_query(query, index, mapping, model, top_k=config.DEFAULT_TOP_K):
     return [mapping[i] for i in indices[0] if int(i) in mapping]
 
 
-def fused_query(query, conn, top_k=config.DEFAULT_TOP_K, k=60):
+def fused_query(query, conn, top_k=config.DEFAULT_TOP_K, k=60, candidate_k=50):
     # Get results from BM25 (sparse) and semantic (dense)
-    bm25_results = bm25_search_sqlite(query, conn, top_n=top_k)
-    semantic_results = semantic_search_sqlite(query, conn, top_n=top_k)
-    
+    bm25_results = bm25_search_sqlite(query, conn, top_n=candidate_k)
+    semantic_results = semantic_search_sqlite(query, conn, top_n=candidate_k)
+
     # Create rank dictionaries
     bm25_ranks = {doc: rank + 1 for rank, doc in enumerate(bm25_results)}
     semantic_ranks = {doc: rank + 1 for rank, doc in enumerate(semantic_results)}
     
     # Combine using Reciprocal Rank Fusion (RRF)
     fused_scores = {}
-    all_docs = set(bm25_results + semantic_results)
+    all_docs = set(bm25_results) | set(semantic_results)
     for doc in all_docs:
-        rrf_sparse = 1 / (k + bm25_ranks.get(doc, top_k + 1))
-        rrf_dense = 1 / (k + semantic_ranks.get(doc, top_k + 1))
+        rrf_sparse = 1 / (k + bm25_ranks.get(doc, candidate_k + 1))
+        rrf_dense = 1 / (k + semantic_ranks.get(doc, candidate_k + 1))
         fused_scores[doc] = rrf_sparse + rrf_dense
     
     # Sort by fused score descending

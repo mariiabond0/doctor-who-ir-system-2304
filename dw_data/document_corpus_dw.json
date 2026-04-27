@@ -160,6 +160,13 @@
     "title": "The Satan Pit",
     "description": "The Doctor risks his life to investigate the pit and is forced to make a terrible decision, while Rose and the crew fend for their lives against the Legion of the Beast."
   },
+  "2x10": {
+    "id": "2x10",
+    "season": 2,
+    "number": 10,
+    "title": "Love & Monsters",
+    "description": "Elton Pope is an ordinary man intrigued by the world of the Doctor. When he and fellow enthusiasts - L.I.N.D.A. - meet the mysterious Victor Kennedy, their lives will never be the same again."
+  },
   "2x11": {
     "id": "2x11",
     "season": 2,
@@ -209,6 +216,20 @@
     "title": "Gridlock",
     "description": "The Doctor takes Martha to New Earth, where she is kidnapped by two carjackers and taken to an underground Motorway, where the remainder of humanity on the planet live in perpetual gridlock."
   },
+  "3x4": {
+    "id": "3x4",
+    "season": 3,
+    "number": 4,
+    "title": "Daleks in Manhattan",
+    "description": "The Doctor and Martha travel to New York in 1930, where people have been mysteriously vanishing from the streets, and an old enemy resurfaces."
+  },
+  "3x5": {
+    "id": "3x5",
+    "season": 3,
+    "number": 5,
+    "title": "Evolution of the Daleks",
+    "description": "Concluding part to Daleks in Manhattan. In 1930s New York, the Daleks' plan is in full force. Faced with the cyborgs' most evil and dangerous scheme yet, will the Doctor and Martha be able to defeat their greatest opponents?"
+  },
   "3x6": {
     "id": "3x6",
     "season": 3,
@@ -229,6 +250,13 @@
     "number": 8,
     "title": "Human Nature",
     "description": "In 1913, Martha watches in jealousy from afar as The Doctor learns what it is to be human and to fall in love with the local school nurse, Joan Redfern."
+  },
+  "3x9": {
+    "id": "3x9",
+    "season": 3,
+    "number": 9,
+    "title": "The Family of Blood",
+    "description": "The Doctor must deal with the repercussions of his decision to become human, as The Family Of Blood unveil themselves..."
   },
   "3x10": {
     "id": "3x10",
@@ -306,6 +334,13 @@
     "number": 6,
     "title": "The Doctor's Daughter",
     "description": "Caught in the middle of a war between the Humans and the Hath in the planet Messaline, the Doctor finds himself once again a father."
+  },
+  "4x7": {
+    "id": "4x7",
+    "season": 4,
+    "number": 7,
+    "title": "The Unicorn and the Wasp",
+    "description": "With a 1926 dinner party turning into a murder mystery, The Doctor and Donna Noble get the chance to meet Agatha Christie on the eve of her well-known 9-days disappearance."
   },
   "4x8": {
     "id": "4x8",
@@ -461,6 +496,13 @@
     "title": "Day of the Moon",
     "description": "The Doctor and his allies mount a rebellion against invaders who have been controlling humanity from the very beginning."
   },
+  "6x3": {
+    "id": "6x3",
+    "season": 6,
+    "number": 3,
+    "title": "The Curse of the Black Spot",
+    "description": "The Doctor, Amy and Rory find themselves aboard a marooned pirate ship whose crew is being picked off one by one by a beautiful - and deadly - Siren."
+  },
   "6x4": {
     "id": "6x4",
     "season": 6,
@@ -481,6 +523,13 @@
     "number": 6,
     "title": "The Almost People",
     "description": "The gangers and humans battle for their lives as the factory crumbles and the Doctor tries to keep the peace - can everyone make it off the island alive?"
+  },
+  "6x7": {
+    "id": "6x7",
+    "season": 6,
+    "number": 7,
+    "title": "A Good Man Goes to War",
+    "description": "A member of The Doctor's team has been abducted and he will call in every favor and maybe even go to war to get them back."
   },
   "6x8": {
     "id": "6x8",
@@ -523,6 +572,13 @@
     "number": 13,
     "title": "The Wedding of River Song",
     "description": "April 22nd, 2011; 5:02pm. Having finally accepted his fate the Doctor travels to Lake Silencio for his final day. But one woman refuses to let time take its course."
+  },
+  "7x0": {
+    "id": "7x0",
+    "season": 7,
+    "number": 0,
+    "title": "The Doctor, the Widow and the Wardrobe",
+    "description": "It's Christmas Eve, 1938, when Madge Arwell comes to the aid of an injured Spaceman Angel as she cycles home. He promises to repay her kindness - all she has to do is make a wish. Three years later, a devastated Madge escapes war-torn London with her two children for a dilapidated house in Dorset. She is crippled with grief at the news her husband has been lost over the channel, but determined to give Lily and Cyril the best Christmas ever. The Arwells are surprised to be greeted by a madcap caretaker whose mysterious Christmas gift leads them into a magical wintry ..."
   },
   "7x1": {
     "id": "7x1",
@@ -593,6 +649,13 @@
     "number": 10,
     "title": "Hide",
     "description": "The Doctor and Clara arrive at an old manor house in 1974 where Alec Palmer and Emma Grayling are investigating the existence of a ghost. Alec is a former army Major, now a psychologist, whilst Emma is an empathic psychic who can not only sense the presence of paranormal beings, but can sense their feelings as well. Palmer explains the house has been haunted for hundreds of years, and the ghost - a woman - is likely much older. Emma senses the ghost is very lonely, but the Doctor realises she's not a ghost at all, but a creature trapped in a zone where time moves much..."
+  },
+  "7x11": {
+    "id": "7x11",
+    "season": 7,
+    "number": 11,
+    "title": "Journey to the Centre of the TARDIS",
+    "description": "The Doctor and Clara find themselves aboard a space freighter that has taken the TARDIS on-board as salvage. While the Doctor is ejected, Clara finds herself wandering through the vehicle exploring it's many - seemingly infinite - rooms. The Doctor re-enters the TARDIS accompanied by three workers from the salvage ship and they have but 30 minutes to find her. There are creatures in the depths of the TARDIS and the time travel machine will do whatever it takes to protect itself. There is a rupture in time however and the TARDIS is leaking recent history....which the ..."
   },
   "7x12": {
     "id": "7x12",
@@ -727,6 +790,13 @@
     "title": "Under the Lake",
     "description": "Under a lake a gleaming black spaceship is recovered but there is nothing inside. When the base crew start dying, they discover that ghosts are real. The Doctor and Clara arrive to find the base under siege and the Doctor discovers that this is more than a ghost story."
   },
+  "9x4": {
+    "id": "9x4",
+    "season": 9,
+    "number": 4,
+    "title": "Before the Flood",
+    "description": "In a town that never was, the Doctor and his friends are being stalked by a mysterious figure. With the past and future in the balance, can the Doctor stop the evil Fisher King? And more importantly, who composed Beethoven's 5th."
+  },
   "9x5": {
     "id": "9x5",
     "season": 9,
@@ -789,6 +859,13 @@
     "number": 13,
     "title": "The Husbands of River Song",
     "description": "When a crashed spaceship calls upon the Doctor for help, he finds himself recruited into River Song's squad and hurled into a chase across the galaxy."
+  },
+  "10x0": {
+    "id": "10x0",
+    "season": 10,
+    "number": 0,
+    "title": "The Return of Doctor Mysterio",
+    "description": "In New York, with brain-swapping aliens poised to attack, the Doctor and Nardole link up with an investigative reporter and a mysterious masked superhero known only as the Ghost. Can the Doctor save Manhattan? And what will be revealed when we see behind the mask?"
   },
   "10x1": {
     "id": "10x1",

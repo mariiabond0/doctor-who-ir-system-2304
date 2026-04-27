@@ -1,28 +1,28 @@
 method,overlap,P@5,R@5,AP,MRR
+Boolean Search,2,0.4,0.4,0.4,1.0
+Boolean Search,1,0.2,0.2,0.2,1.0
+Boolean Search,3,0.6,0.6,0.4833333333333333,1.0
+Boolean Search,2,0.4,0.4,0.2,0.5
+Boolean Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+Boolean Search,1,0.2,0.2,0.2,1.0
+Boolean Search,0,0.0,0.0,0.0,0.0
+Boolean Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+Boolean Search,0,0.0,0.0,0.0,0.0
+Boolean Search,1,0.2,0.2,0.1,0.5
+Boolean Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+Boolean Search,1,0.2,0.2,0.2,1.0
+Boolean Search,1,0.2,0.2,0.2,1.0
 Boolean Search,0,0.0,0.0,0.0,0.0
 Boolean Search,0,0.0,0.0,0.0,0.0
 Boolean Search,0,0.0,0.0,0.0,0.0
 Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-Boolean Search,0,0.0,0.0,0.0,0.0
-BM25 Search,1,0.2,0.2,0.05,0.25
-BM25 Search,0,0.0,0.0,0.0,0.0
-BM25 Search,1,0.2,0.2,0.1,0.5
 BM25 Search,0,0.0,0.0,0.0,0.0
 BM25 Search,0,0.0,0.0,0.0,0.0
 BM25 Search,0,0.0,0.0,0.0,0.0
-BM25 Search,3,0.6,0.6,0.2866666666666666,0.3333333333333333
+BM25 Search,0,0.0,0.0,0.0,0.0
+BM25 Search,0,0.0,0.0,0.0,0.0
+BM25 Search,0,0.0,0.0,0.0,0.0
+BM25 Search,0,0.0,0.0,0.0,0.0
 BM25 Search,1,0.2,0.2,0.2,1.0
 BM25 Search,0,0.0,0.0,0.0,0.0
 BM25 Search,0,0.0,0.0,0.0,0.0
@@ -36,7 +36,7 @@ BM25 Search,0,0.0,0.0,0.0,0.0
 Semantic Search,4,0.8,0.8,0.8,1.0
 Semantic Search,2,0.4,0.4,0.2,0.5
 Semantic Search,1,0.2,0.2,0.04,0.2
-Semantic Search,1,0.2,0.2,0.2,1.0
+Semantic Search,1,0.2,0.2,0.1,0.5
 Semantic Search,0,0.0,0.0,0.0,0.0
 Semantic Search,1,0.2,0.2,0.2,1.0
 Semantic Search,0,0.0,0.0,0.0,0.0
@@ -47,13 +47,13 @@ Semantic Search,1,0.2,0.2,0.04,0.2
 Semantic Search,1,0.2,0.2,0.04,0.2
 Semantic Search,1,0.2,0.2,0.05,0.25
 Semantic Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
-Semantic Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+Semantic Search,1,0.2,0.2,0.04,0.2
 Semantic Search,0,0.0,0.0,0.0,0.0
-Semantic Search,1,0.2,0.2,0.1,0.5
+Semantic Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
 FAISS Semantic Search,4,0.8,0.8,0.8,1.0
 FAISS Semantic Search,2,0.4,0.4,0.2,0.5
 FAISS Semantic Search,1,0.2,0.2,0.04,0.2
-FAISS Semantic Search,1,0.2,0.2,0.2,1.0
+FAISS Semantic Search,1,0.2,0.2,0.1,0.5
 FAISS Semantic Search,0,0.0,0.0,0.0,0.0
 FAISS Semantic Search,1,0.2,0.2,0.2,1.0
 FAISS Semantic Search,0,0.0,0.0,0.0,0.0
@@ -64,23 +64,23 @@ FAISS Semantic Search,1,0.2,0.2,0.04,0.2
 FAISS Semantic Search,1,0.2,0.2,0.04,0.2
 FAISS Semantic Search,1,0.2,0.2,0.05,0.25
 FAISS Semantic Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
-FAISS Semantic Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+FAISS Semantic Search,1,0.2,0.2,0.04,0.2
 FAISS Semantic Search,0,0.0,0.0,0.0,0.0
-FAISS Semantic Search,1,0.2,0.2,0.1,0.5
-Fused Search,3,0.6,0.6,0.42000000000000004,1.0
-Fused Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
-Fused Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
-Fused Search,1,0.2,0.2,0.2,1.0
-Fused Search,0,0.0,0.0,0.0,0.0
-Fused Search,1,0.2,0.2,0.1,0.5
-Fused Search,0,0.0,0.0,0.0,0.0
-Fused Search,2,0.4,0.4,0.4,1.0
-Fused Search,1,0.2,0.2,0.2,1.0
-Fused Search,1,0.2,0.2,0.1,0.5
-Fused Search,0,0.0,0.0,0.0,0.0
-Fused Search,0,0.0,0.0,0.0,0.0
-Fused Search,0,0.0,0.0,0.0,0.0
+FAISS Semantic Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+Fused Search,2,0.4,0.4,0.2333333333333333,0.5
 Fused Search,0,0.0,0.0,0.0,0.0
 Fused Search,2,0.4,0.4,0.18,0.5
+Fused Search,1,0.2,0.2,0.2,1.0
 Fused Search,0,0.0,0.0,0.0,0.0
-Fused Search,1,0.2,0.2,0.06666666666666667,0.3333333333333333
+Fused Search,1,0.2,0.2,0.05,0.25
+Fused Search,2,0.4,0.4,0.16666666666666666,0.3333333333333333
+Fused Search,2,0.4,0.4,0.3,1.0
+Fused Search,0,0.0,0.0,0.0,0.0
+Fused Search,2,0.4,0.4,0.16666666666666666,0.3333333333333333
+Fused Search,0,0.0,0.0,0.0,0.0
+Fused Search,0,0.0,0.0,0.0,0.0
+Fused Search,1,0.2,0.2,0.04,0.2
+Fused Search,1,0.2,0.2,0.04,0.2
+Fused Search,1,0.2,0.2,0.05,0.25
+Fused Search,0,0.0,0.0,0.0,0.0
+Fused Search,1,0.2,0.2,0.05,0.25

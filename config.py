@@ -25,6 +25,7 @@ QUERIES_PATH = DATA_DIR / "second_example_17_queries.json"
 # Input data files
 EPISODES_CSV = DATA_DIR / "all-detailsepisodes.csv"
 IMDB_CSV = DATA_DIR / "imdb_details.csv"
+DW_GUIDE_CSV = DATA_DIR / "dw_guide_details.csv"
 
 # Preprocessing settings
 ENABLE_STOPWORD_REMOVAL = True
